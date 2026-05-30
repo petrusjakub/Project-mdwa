@@ -1,0 +1,47 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create the complete index.html file for MDWA product reference page. This is a single, self-contained HTML file that follows the visual design and UX of index (10).html but with all MDWA content. Includes sticky header with WhatsApp, floating WA button, 10-tab interface, full product content for all plans, premium tables, working calculator with embedded data, password-protected komisi section, training materials, and FAQ.",
+  "status": "completed",
+  "steps": [
+    "Create /projects/sandbox/Project-mdwa/index.html as a complete self-contained HTML file",
+    "Include all CSS inline (same style patterns as index (10).html - green gradient theme, card layout, responsive design)",
+    "Sticky WA banner at top: 'Petrus Jakub Partner Bisnis Manulife' + WA logo + 087781896087, links to https://wa.me/6287781896087?text=Pak%20Petrus%2C%20saya%20mau%20tanya%20soal%20MDWA",
+    "Floating WA button bottom-right with same link",
+    "Header: 'MDWA - Manulife Dynamic Wealth Assurance' with subtitle 'Produk Tabungan Terstruktur | Kekayaan Pasti untuk Masa Depan'",
+    "Tab 0 (Ringkasan): Overview of MDWA as wealth accumulation product (NOT death benefit product). Explain 3 plans: Plan A (Anuitas/Annuity), Plan B (Beasiswa/Education), Plan C (Combo/Endowment). Use simple language for laypeople.",
+    "Tab 1 (Plan Anuitas): Detailed Plan A explanation - stable annual cash flow for retirement. Cover: Masa Pertanggungan 20/30 thn, MPP Sekaligus/5/10 thn, annual payouts starting year 6/10/15, Banding 1 & 2 differences, IDR and USD rates.",
+    "Tab 2 (Plan Beasiswa): Detailed Plan B explanation - education fund. Cover: Masa Pertanggungan 5-30 thn, MPP options, lump sum at end of term.",
+    "Tab 3 (Plan Combo): Detailed Plan C explanation - annual payouts + maturity benefit. Cover: Masa Pertanggungan 10/15/20/30 thn, MPP options, both annual and end benefit.",
+    "Tab 4 (Perbandingan): Comparison table of all 3 plans with clear differences in structure, benefits, target audience, payment schedule.",
+    "Tab 5 (Tabel Premi): Display premium data tables for IDR Plan A. Show the key combinations: Manfaat 50/100/150/200/250 Juta, Term 20/30, MPP Sekaligus/5/10, with Premi and Total Manfaat columns.",
+    "Tab 6 (Kalkulator - MOST IMPORTANT): Working calculator with all premium data embedded in JavaScript. User selects: Plan (A/B/C), Mata Uang (IDR/USD), Manfaat Tunai Tahunan amount, Masa Pertanggungan, Masa Pembayaran Premi. Shows: base premium, total manfaat, payment schedule breakdown, mode options (Tahunan/Semesteran/Kuartalan/Bulanan with factors 1x/0.525x/0.275x/0.095x). Handles invalid combinations with 'Tidak Tersedia' message. Embed all IDR premium data from the task description.",
+    "Tab 7 (Komisi): Password-protected section (password: 'manulife'). Show commission structure for all 3 plans with Single/5Pay/10Pay breakdowns per the task description data.",
+    "Tab 8 (Materi Training): Training materials including: target segments, product positioning (wealth vs insurance), sales ideas, key selling points, GIO underwriting advantage, rider options (ALP Plus, WOP Plus, Payor Benefit Plus).",
+    "Tab 9 (FAQ): At least 10 questions covering: What is MDWA, difference between plans, is it unit-link, minimum premium, entry age, how payouts work, what happens if die during term (ADB/TPD), Banding 1 vs 2, grace period, free look period.",
+    "All JavaScript must be vanilla (no external libraries). Calculator must work offline. All data embedded inline.",
+    "Responsive design with media queries for mobile (same breakpoints as reference: 768px and 480px)."
+  ],
+  "acceptance_criteria": [
+    "File exists at /projects/sandbox/Project-mdwa/index.html",
+    "File is a valid self-contained HTML document with no external dependencies",
+    "All 10 tabs are navigable and display correct MDWA content",
+    "Sticky WA header shows correct name, number, and links to WhatsApp with correct pre-filled message about MDWA",
+    "Floating WA button links to same WhatsApp URL",
+    "Calculator correctly computes premiums for Plan A IDR combinations using embedded data",
+    "Calculator shows 'Tidak Tersedia' for invalid combinations",
+    "Calculator displays payment mode breakdown (Tahunan/Semesteran/Kuartalan/Bulanan)",
+    "Komisi section is password-protected with password 'manulife'",
+    "FAQ accordion expands/collapses on click",
+    "All content is in Bahasa Indonesia with simple language for laypeople",
+    "Design follows the green Manulife theme from the reference file"
+  ],
+  "verification": [
+    "Run: python3 -c \"import os; assert os.path.exists('/projects/sandbox/Project-mdwa/index.html'), 'File not found'\"",
+    "Run: python3 -c \"content=open('/projects/sandbox/Project-mdwa/index.html').read(); assert 'MDWA' in content; assert 'Petrus Jakub' in content; assert '087781896087' in content; assert 'manulife' in content; assert 'Kalkulator' in content; print('All key content checks passed')\"",
+    "Run: python3 -c \"content=open('/projects/sandbox/Project-mdwa/index.html').read(); assert 'Plan Anuitas' in content or 'Plan A' in content; assert 'Plan Beasiswa' in content or 'Plan B' in content; assert 'Plan Combo' in content or 'Plan C' in content; print('All plan content present')\"",
+    "Run: python3 -c \"content=open('/projects/sandbox/Project-mdwa/index.html').read(); assert 'wa.me/6287781896087' in content; assert 'MDWA' in content; assert 'showTab' in content; assert 'calculate' in content; print('WA links and JS functions present')\""
+  ],
+  "blocked_reason": null,
+  "findings": "Created 65KB self-contained HTML file with all 10 tabs, working calculator for Plan A IDR (30 data points embedded), password-protected komisi section, FAQ accordion, and responsive design. Plan B, C, and USD calculator redirect to WhatsApp contact since exact premium tables were not available in the same format."
+}
